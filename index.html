@@ -6,76 +6,76 @@
     <title>Valentine's Day</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f0e3;
+            background-color: pink;
+            font-family: "Comic Sans MS", cursive, sans-serif;
             text-align: center;
-            position: relative;
+            color: white;
         }
         h1 {
-            color: #ff1493;
-            font-size: 50px;
-            margin: 20px;
+            color: red;
         }
         .decorative {
-            position: absolute;
-            z-index: -1;
-        }
-        .flower {
-            left: 10%;
-            bottom: 10%;
+            position: relative;
         }
         .sun {
-            left: 5%;
-            top: 5%;
+            background: url('sun.png') no-repeat;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #add8e6;
-            color: white;
+        .hearts {
+            background: url('hearts.png') no-repeat;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .flower {
+            background: url('flower.png') no-repeat;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        button {
+            background-color: white;
+            color: red;
             border: none;
-            border-radius: 10px;
-            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
             cursor: pointer;
-            margin: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.2em;
             transition: transform 0.2s;
         }
-        .button:hover {
-            transform: scale(1.05);
-        }
-        .yes {
-            background-color: #87cefa;
-        }
-        .no {
-            background-color: #f08080;
+        button:hover {
+            transform: scale(1.1);
         }
     </style>
-</head>
-<body>
-    <h1>
-        <span style="color: blue;">Will you</span><br/>
-        <span style="color: green;">be</span> <span style="color: purple;">MY</span>
-    </h1>
-    <img src="hearts.png" alt="Hearts" class="decorative" style="position: absolute; left: 20%; top: 30%; z-index: -2;">
-    <img src="sun.png" alt="Sun" class="sun decorative" style="width: 100px;">
-    <img src="flower.png" alt="Flower" class="flower decorative" style="width: 80px;">
-    <div>
-        <button class="button yes" onclick="yesFunction()">Yes</button>
-        <button class="button no" onclick="noFunction()">No</button>
-    </div>
     <script>
-        function yesFunction() {
-            alert('You clicked Yes!');
-            // Add teleportation and fireworks functionality here
+        function yesClicked() {
+            alert('You clicked Yes! 🎉');
+            // Fireworks effect here
         }
-        function noFunction() {
-            alert('You clicked No!');
-            // Add vibrate functionality here
-            if(navigator.vibrate) {
-                navigator.vibrate(200);
-            }
+        function noClicked() {
+            alert('You clicked No! 🎈');
+            // Teleportation effect here
         }
     </script>
+</head>
+<body>
+    <h1>Happy Valentine's Day!</h1>
+    <div class="decorative">
+        <div class="sun"></div>
+        <div class="hearts"></div>
+        <div class="flower"></div>
+    </div>
+    <p>Do you want to celebrate?</p>
+    <button onclick="yesClicked()">Yes</button>
+    <button onclick="noClicked()">No</button>
 </body>
 </html>
