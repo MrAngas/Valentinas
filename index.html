@@ -3,62 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine</title>
+    <title>Valentine's Day</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f9cce6;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f0e3;
+            text-align: center;
+            position: relative;
         }
         h1 {
-            color: pink;
-            font-weight: bold;
-            text-align: center;
+            color: #ff1493;
+            font-size: 50px;
+            margin: 20px;
+        }
+        .decorative {
+            position: absolute;
+            z-index: -1;
+        }
+        .flower {
+            left: 10%;
+            bottom: 10%;
+        }
+        .sun {
+            left: 5%;
+            top: 5%;
         }
         .button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #add8e6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
             cursor: pointer;
+            margin: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.05);
+        }
+        .yes {
+            background-color: #87cefa;
         }
         .no {
-            background-color: #ffcccc;
-            animation: vibrate 0.3s infinite alternate;
-        }
-        .no:hover {
-            position: relative;
-            transition: 0.5s;
-            transform: translateX(10px);
-        }
-        @keyframes vibrate {
-            0% { transform: translate(0); }
-            100% { transform: translate(-2px); }
+            background-color: #f08080;
         }
     </style>
 </head>
 <body>
+    <h1>
+        <span style="color: blue;">Will you</span><br/>
+        <span style="color: green;">be</span> <span style="color: purple;">MY</span>
+    </h1>
+    <img src="hearts.png" alt="Hearts" class="decorative" style="position: absolute; left: 20%; top: 30%; z-index: -2;">
+    <img src="sun.png" alt="Sun" class="sun decorative" style="width: 100px;">
+    <img src="flower.png" alt="Flower" class="flower decorative" style="width: 80px;">
     <div>
-        <h1>Will you be my Valentine?</h1>
-        <button class="button yes" onclick="showFireworks()">Yes</button>
-        <button class="button no" onclick="moveNoButton()">No</button>
+        <button class="button yes" onclick="yesFunction()">Yes</button>
+        <button class="button no" onclick="noFunction()">No</button>
     </div>
     <script>
-        function showFireworks() {
-            alert('I knew it!');
-            // Code for fireworks here
+        function yesFunction() {
+            alert('You clicked Yes!');
+            // Add teleportation and fireworks functionality here
         }
-        function moveNoButton() {
-            let noButton = document.querySelector('.no');
-            noButton.innerText = 'Are you sure?';
-            noButton.onclick = function() {
-                let x = Math.random() * window.innerWidth;
-                let y = Math.random() * window.innerHeight;
-                noButton.style.position = 'absolute';
-                noButton.style.left = x + 'px';
-                noButton.style.top = y + 'px';
-            };
+        function noFunction() {
+            alert('You clicked No!');
+            // Add vibrate functionality here
+            if(navigator.vibrate) {
+                navigator.vibrate(200);
+            }
         }
     </script>
 </body>
